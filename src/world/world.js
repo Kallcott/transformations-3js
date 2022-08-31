@@ -146,6 +146,13 @@ class World {
     scene.add(light);
 
     const resizer = new Resizer(container, camera, renderer);
+
+    // for any custom action when window is resized
+    // Each world may have personalised settings
+    resizer.onResize = () => {
+      // This keeps the scale, instead of stretching.
+      this.render();
+    };
   }
 
   render() {
